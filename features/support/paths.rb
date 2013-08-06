@@ -17,7 +17,7 @@ module NavigationHelpers
 	
     when /^the movies page$/ then '/movies'
 	#when /^the edit page for (.*)$/ then '/movies'
-	when /^the edit page for (.*)$/ then edit_movie_path(Movie.find_by_title($1.chomp('"').reverse.chomp('"').reverse))
+	when /^the edit page for "(.*)"$/ then edit_movie_path(Movie.find_by_title($1))
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

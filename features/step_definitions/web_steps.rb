@@ -138,6 +138,22 @@ Then /^(?:|I )should not see \/([^\/]*)\/$/ do |regexp|
   end
 end
 
+Then /^the director of "([^"]*)" should be "([^"]*)"$/ do |arg1, arg2|
+  if page.respond_to? :should
+    page.should have_content(arg1)
+  else
+    assert page.has_content?(arg1)
+  end
+  
+  if page.respond_to? :should
+    page.should have_content(arg2)
+  else
+    assert page.has_content?(arg2)
+  end
+  
+end
+
+
 Then /^the "([^"]*)" field(?: within (.*))? should contain "([^"]*)"$/ do |field, parent, value|
   with_scope(parent) do
     field = find_field(field)
