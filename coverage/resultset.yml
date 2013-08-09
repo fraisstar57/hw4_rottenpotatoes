@@ -19,46 +19,11 @@ Cucumber Features:
     - 1
     - 
     - 1
-    - 
+    - 0
     - 
     - 
     - 1
-    - 3
-    - 3
-    - 
-    - 
-    - 
     - 1
-    - 0
-    - 0
-    - 
-    - 0
-    - 
-    - 0
-    - 
-    - 0
-    - 0
-    - 
-    - 0
-    - 0
-    - 
-    - 
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 0
-    - 0
-    - 0
-    - 0
-    - 0
-    - 
-    - 
-    - 0
-    - 
-    - 
     - 1
     - 
     - 
@@ -66,18 +31,53 @@ Cucumber Features:
     - 1
     - 0
     - 0
+    - 
+    - 0
+    - 
+    - 0
+    - 
+    - 0
+    - 0
+    - 
+    - 0
+    - 0
+    - 
+    - 
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 
     - 0
     - 
     - 
     - 1
+    - 
+    - 
+    - 
     - 1
+    - 0
+    - 0
+    - 0
     - 
     - 
     - 1
+    - 0
+    - 
+    - 
     - 1
-    - 1
-    - 1
-    - 1
+    - 0
+    - 0
+    - 0
+    - 0
     - 
     - 
     - 1
@@ -94,7 +94,7 @@ Cucumber Features:
     - 0
     - 
     - 
-  :created_at: 2013-08-08 17:28:21.569483 -07:00
+  :created_at: 2013-08-08 19:25:26.130002 -07:00
 RSpec: 
   :original_result: 
     /media/CS169X/Google Drive/Course1/hw4_rottenpotatoes/app/controllers/application_controller.rb: 
@@ -119,40 +119,44 @@ RSpec:
     - 
     - 
     - 1
-    - 0
-    - 0
-    - 
+    - 3
     - 
     - 
     - 1
     - 0
     - 0
     - 
-    - 0
+    - 
+    - 
+    - 1
+    - 1
+    - 1
     - 
     - 0
     - 
     - 0
-    - 0
     - 
-    - 0
-    - 0
+    - 1
+    - 1
     - 
-    - 
-    - 0
-    - 0
-    - 0
-    - 0
+    - 1
+    - 6
     - 
     - 
-    - 0
-    - 0
+    - 1
     - 0
     - 0
     - 0
     - 
     - 
+    - 1
     - 0
+    - 0
+    - 0
+    - 0
+    - 
+    - 
+    - 1
     - 
     - 
     - 1
@@ -187,10 +191,10 @@ RSpec:
     /media/CS169X/Google Drive/Course1/hw4_rottenpotatoes/app/models/movie.rb: 
     - 1
     - 1
-    - 0
+    - 1
     - 
     - 
-  :created_at: 2013-08-08 18:11:18.550042 -07:00
+  :created_at: 2013-08-08 21:03:30.974750 -07:00
 "/usr/local/bin/rspec ": 
   :original_result: 
     /media/CS169X/Google Drive/Course1/hw4_rottenpotatoes/app/controllers/application_controller.rb: 

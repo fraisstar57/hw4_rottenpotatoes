@@ -1476,3 +1476,629 @@ Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
   Processing by MoviesController#search_tmdb as HTML
   Parameters: {"search_terms"=>"hardware"}
 Completed 200 OK in 36ms (Views: 35.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (117.2ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 09 Aug 2013 02:23:10 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "PG"], ["release_date", Wed, 25 May 1977 00:00:00 UTC +00:00], ["title", "Star Wars"], ["updated_at", Fri, 09 Aug 2013 02:23:10 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 09 Aug 2013 02:23:10 UTC +00:00], ["description", nil], ["director", "Ridley Scott"], ["rating", "PG"], ["release_date", Fri, 25 Jun 1982 00:00:00 UTC +00:00], ["title", "Blade Runner"], ["updated_at", Fri, 09 Aug 2013 02:23:10 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 09 Aug 2013 02:23:10 UTC +00:00], ["description", nil], ["director", ""], ["rating", "R"], ["release_date", Fri, 25 May 1979 00:00:00 UTC +00:00], ["title", "Alien"], ["updated_at", Fri, 09 Aug 2013 02:23:10 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 09 Aug 2013 02:23:10 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "R"], ["release_date", Thu, 11 Mar 1971 00:00:00 UTC +00:00], ["title", "THX-1138"], ["updated_at", Fri, 09 Aug 2013 02:23:10 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Alien' LIMIT 1[0m
+
+
+Started GET "/movies/3/edit" for 127.0.0.1 at 2013-08-08 19:23:10 -0700
+  Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "3"]]
+Rendered movies/edit.html.haml within layouts/application (12.8ms)
+Completed 200 OK in 471ms (Views: 469.7ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/movies/3" for 127.0.0.1 at 2013-08-08 19:23:12 -0700
+  Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "movie"=>{"title"=>"Alien", "rating"=>"R", "release_date(1i)"=>"1979", "release_date(2i)"=>"5", "release_date(3i)"=>"25", "director"=>"Ridley Scott"}, "commit"=>"Update Movie Info", "id"=>"3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mUPDATE "movies" SET "director" = 'Ridley Scott', "updated_at" = '2013-08-09 02:23:12.354735' WHERE "movies"."id" = 3[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/movies/3
+Completed 302 Found in 7ms
+
+
+Started GET "/movies/3" for 127.0.0.1 at 2013-08-08 19:23:12 -0700
+  Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Alien' LIMIT 1
+Rendered movies/show.html.haml within layouts/application (89.9ms)
+Completed 500 Internal Server Error in 174ms
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (40.6ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 09 Aug 2013 02:23:12 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "PG"], ["release_date", Wed, 25 May 1977 00:00:00 UTC +00:00], ["title", "Star Wars"], ["updated_at", Fri, 09 Aug 2013 02:23:12 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (5.8ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 09 Aug 2013 02:23:12 UTC +00:00], ["description", nil], ["director", "Ridley Scott"], ["rating", "PG"], ["release_date", Fri, 25 Jun 1982 00:00:00 UTC +00:00], ["title", "Blade Runner"], ["updated_at", Fri, 09 Aug 2013 02:23:12 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (13.1ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 09 Aug 2013 02:23:12 UTC +00:00], ["description", nil], ["director", ""], ["rating", "R"], ["release_date", Fri, 25 May 1979 00:00:00 UTC +00:00], ["title", "Alien"], ["updated_at", Fri, 09 Aug 2013 02:23:12 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.3ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 09 Aug 2013 02:23:12 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "R"], ["release_date", Thu, 11 Mar 1971 00:00:00 UTC +00:00], ["title", "THX-1138"], ["updated_at", Fri, 09 Aug 2013 02:23:12 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Star Wars' LIMIT 1[0m
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2013-08-08 19:23:12 -0700
+  Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Star Wars' LIMIT 1[0m
+Rendered movies/show.html.haml within layouts/application (171.6ms)
+Completed 500 Internal Server Error in 184ms
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (48.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 09 Aug 2013 02:23:13 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "PG"], ["release_date", Wed, 25 May 1977 00:00:00 UTC +00:00], ["title", "Star Wars"], ["updated_at", Fri, 09 Aug 2013 02:23:13 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 09 Aug 2013 02:23:13 UTC +00:00], ["description", nil], ["director", "Ridley Scott"], ["rating", "PG"], ["release_date", Fri, 25 Jun 1982 00:00:00 UTC +00:00], ["title", "Blade Runner"], ["updated_at", Fri, 09 Aug 2013 02:23:13 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (9.3ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 09 Aug 2013 02:23:13 UTC +00:00], ["description", nil], ["director", ""], ["rating", "R"], ["release_date", Fri, 25 May 1979 00:00:00 UTC +00:00], ["title", "Alien"], ["updated_at", Fri, 09 Aug 2013 02:23:13 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 09 Aug 2013 02:23:13 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "R"], ["release_date", Thu, 11 Mar 1971 00:00:00 UTC +00:00], ["title", "THX-1138"], ["updated_at", Fri, 09 Aug 2013 02:23:13 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mMovie Load (7.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Alien' LIMIT 1
+
+
+Started GET "/movies/3" for 127.0.0.1 at 2013-08-08 19:23:13 -0700
+  Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Alien' LIMIT 1
+Rendered movies/show.html.haml within layouts/application (169.8ms)
+Completed 500 Internal Server Error in 178ms
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (106.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 09 Aug 2013 02:25:24 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "PG"], ["release_date", Wed, 25 May 1977 00:00:00 UTC +00:00], ["title", "Star Wars"], ["updated_at", Fri, 09 Aug 2013 02:25:24 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 09 Aug 2013 02:25:24 UTC +00:00], ["description", nil], ["director", "Ridley Scott"], ["rating", "PG"], ["release_date", Fri, 25 Jun 1982 00:00:00 UTC +00:00], ["title", "Blade Runner"], ["updated_at", Fri, 09 Aug 2013 02:25:24 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 09 Aug 2013 02:25:24 UTC +00:00], ["description", nil], ["director", ""], ["rating", "R"], ["release_date", Fri, 25 May 1979 00:00:00 UTC +00:00], ["title", "Alien"], ["updated_at", Fri, 09 Aug 2013 02:25:24 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 09 Aug 2013 02:25:24 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "R"], ["release_date", Thu, 11 Mar 1971 00:00:00 UTC +00:00], ["title", "THX-1138"], ["updated_at", Fri, 09 Aug 2013 02:25:24 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Star Wars' LIMIT 1[0m
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2013-08-08 19:25:24 -0700
+  Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Star Wars' LIMIT 1[0m
+Rendered movies/show.html.haml within layouts/application (74.1ms)
+Completed 500 Internal Server Error in 454ms
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 435ms (Views: 434.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 560ms (Views: 559.1ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 406ms (Views: 405.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 33ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 26ms (Views: 25.8ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 384ms (Views: 383.1ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 23ms (Views: 22.5ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 558ms
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 395ms (Views: 394.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/movies
+Completed 302 Found in 1ms
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 660ms (Views: 659.3ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 41ms (Views: 40.3ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/movies
+Completed 302 Found in 1ms
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 500 Internal Server Error in 1ms
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 500 Internal Server Error in 0ms
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 500 Internal Server Error in 0ms
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 404 Not Found in 59ms
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 474ms (Views: 473.9ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 27ms (Views: 26.9ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 38ms (Views: 37.8ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (13.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 404 Not Found in 56ms
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 573ms (Views: 572.0ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 16ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 39ms (Views: 38.9ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (4.9ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 404 Not Found in 100ms
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (2.5ms)
+Completed 200 OK in 424ms (Views: 423.7ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 28ms (Views: 27.6ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+  [1m[36mMovie Load (15.8ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."director" = 'George Lucas'[0m
+Completed 200 OK in 429ms (Views: 147.7ms | ActiveRecord: 15.8ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 496ms (Views: 495.0ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 20ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+  [1m[36mMovie Load (6.8ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."director" = 'George Lucas'[0m
+Completed 200 OK in 232ms (Views: 77.5ms | ActiveRecord: 6.8ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 400ms (Views: 399.1ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 15ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 102ms (Views: 101.7ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 571ms (Views: 570.6ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 30ms (Views: 29.3ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 380ms (Views: 379.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.9ms)
+Completed 200 OK in 421ms (Views: 420.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 11ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 17ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 230ms (Views: 229.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 8ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.9ms)
+Completed 200 OK in 424ms (Views: 422.5ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 11ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 255ms (Views: 254.0ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 26ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 28ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 431ms (Views: 430.1ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 22ms (Views: 21.5ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 39ms (Views: 32.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 273ms (Views: 267.5ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 40ms (Views: 23.3ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (19.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+Completed 200 OK in 415ms (Views: 203.6ms | ActiveRecord: 19.2ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 405ms (Views: 404.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 243ms (Views: 241.3ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 12ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 19ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (19.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+Completed 200 OK in 421ms (Views: 178.4ms | ActiveRecord: 19.1ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (2.4ms)
+Completed 200 OK in 600ms (Views: 599.5ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 17ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 372ms (Views: 371.8ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 46ms (Views: 46.1ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (11.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+Completed 200 OK in 430ms (Views: 200.0ms | ActiveRecord: 11.4ms)
+  Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (28.8ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+Completed 200 OK in 33ms (Views: 3.3ms | ActiveRecord: 28.8ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 409ms (Views: 408.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 18ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 24ms (Views: 22.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 256ms (Views: 254.5ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 21ms (Views: 20.7ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (22.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+Completed 200 OK in 397ms (Views: 180.5ms | ActiveRecord: 22.1ms)
+  Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (40.5ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+Completed 200 OK in 45ms (Views: 2.8ms | ActiveRecord: 40.5ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 529ms (Views: 528.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 19ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 43ms (Views: 42.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 240ms (Views: 239.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 7ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (20.6ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+Completed 200 OK in 472ms (Views: 219.8ms | ActiveRecord: 20.6ms)
+  Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (21.5ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+Completed 200 OK in 31ms (Views: 7.6ms | ActiveRecord: 21.5ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 424ms (Views: 423.0ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 21ms (Views: 21.1ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 37ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 213ms (Views: 196.5ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 23ms (Views: 22.8ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (23.6ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+Completed 200 OK in 437ms (Views: 193.3ms | ActiveRecord: 23.6ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 416ms (Views: 415.5ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 30ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 26ms (Views: 26.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 388ms (Views: 387.3ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 27ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 20ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.7ms)
+Completed 200 OK in 399ms (Views: 399.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 16ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 239ms (Views: 238.3ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 405ms (Views: 404.6ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 28ms (Views: 28.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 248ms (Views: 247.3ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 38ms (Views: 37.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (8.7ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+Completed 200 OK in 350ms (Views: 178.3ms | ActiveRecord: 8.7ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 415ms (Views: 414.9ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 23ms (Views: 22.9ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 206ms (Views: 206.0ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 30ms (Views: 29.8ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 28ms (Views: 27.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.8ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+Completed 200 OK in 322ms (Views: 165.0ms | ActiveRecord: 0.8ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 502ms (Views: 501.7ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 20ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 233ms (Views: 228.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 22ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 28ms (Views: 27.9ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (10.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+Completed 200 OK in 388ms (Views: 211.5ms | ActiveRecord: 10.1ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.7ms)
+Completed 200 OK in 602ms (Views: 601.7ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 26ms (Views: 25.9ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 290ms (Views: 289.2ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 35ms (Views: 34.7ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.8ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+Completed 200 OK in 536ms (Views: 299.2ms | ActiveRecord: 0.8ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 412ms (Views: 411.6ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 32ms (Views: 31.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 430ms (Views: 429.8ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.8ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+Completed 200 OK in 392ms (Views: 159.2ms | ActiveRecord: 0.8ms)
+  Processing by MoviesController#update as HTML
+  Parameters: {"movie"=>{"title"=>"new title", "rating"=>"G", "director"=>"Billy Bob", "release_date"=>"1979-01-05"}, "id"=>"1"}
+  [1m[35mMovie Load (27.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 404 Not Found in 49ms
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Rendered movies/search_tmdb.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 426ms (Views: 425.5ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 14ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"search_terms"=>"hardware"}
+Completed 200 OK in 28ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 222ms (Views: 222.0ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 28ms (Views: 27.3ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#similar_movies as HTML
+  Parameters: {"director"=>"George Lucas"}
+Completed 200 OK in 34ms (Views: 33.8ms | ActiveRecord: 0.0ms)
+  Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.6ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+Completed 200 OK in 241ms (Views: 149.2ms | ActiveRecord: 0.6ms)
