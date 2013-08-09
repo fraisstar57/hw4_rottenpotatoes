@@ -245,6 +245,9 @@ end
  
 Then /^(?:|I )should be on (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
+  #puts "Current_path: " + current_path.to_s
+  #puts "Current_url: " + current_url.to_s
+  #puts "page_name: " + page_name.to_s
   if current_path.respond_to? :should
     current_path.should == path_to(page_name)
   else

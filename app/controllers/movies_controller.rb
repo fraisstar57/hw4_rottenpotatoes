@@ -1,5 +1,9 @@
 class MoviesController < ApplicationController
 
+def search_tmdb
+	@movies = Movie.find_in_tmdb(params[:search_terms])
+end
+
   def show
     id = params[:id] # retrieve movie ID from URI route
     @movie = Movie.find(id) # look up movie by unique ID
@@ -33,7 +37,8 @@ class MoviesController < ApplicationController
       flash.keep
       redirect_to :sort => sort, :ratings => @selected_ratings and return
     end
-    @movies = Movie.find_all_by_rating(@selected_ratings.keys, ordering)
+
+	@movies = Movie.find_all_by_rating(@selected_ratings.keys, ordering)
   end
 
   def new
