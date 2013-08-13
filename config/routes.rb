@@ -14,7 +14,7 @@ Rottenpotatoes::Application.routes.draw do
   #   resources :products
   resources :movies
   post '/movies/search_tmdb'
-  post '/movies/similar_movies'
+  match '/movies/similar_movies/:id' => 'movies#similar_movies', :as => 'similar_movies'
   
   # Sample resource route with options:
   #   resources :products do

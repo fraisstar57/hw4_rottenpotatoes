@@ -98,6 +98,14 @@ When /^(?:|I )choose "([^"]*)"$/ do |field|
   choose(field)
 end
 
+Then /^(?:|I )should see "([^"]*)" has no director info$/ do |text|
+  if page.respond_to? :should
+    page.should have_content(text)
+  else
+    assert page.has_content?(text)
+  end
+end
+
 When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|
   attach_file(field, File.expand_path(path))
 end

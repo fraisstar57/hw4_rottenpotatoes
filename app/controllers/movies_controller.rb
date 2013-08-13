@@ -1,7 +1,8 @@
 class MoviesController < ApplicationController
 
 def similar_movies
-	@movies = Movie.find_similar_movies(params[:director])
+	puts params[:id]
+	@movies = Movie.find_all_by_director(Movie.find(params[:id]).director)
 end
 
 def search_tmdb

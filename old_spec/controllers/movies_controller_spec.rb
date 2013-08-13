@@ -3,7 +3,7 @@ require 'spec_helper'
 describe MoviesController do
   describe 'searching TMDb' do
 	before :each do
-		@fake_results = [mock('movie1'), mock('movie2')]
+		@fake_results = [mock('movie1'), mock('movie2')]	
 	end
     it 'should call the model method that performs TMDb search' do
 		Movie.should_receive(:find_in_tmdb).with('hardware').and_return(@fake_results)
@@ -25,22 +25,33 @@ describe MoviesController do
    
   describe 'Find Movies With Same Director' do
 	before :each do
-		@similar_movie_results = [mock('Star Wars'), mock('THX-1138')]
+		@temp_movie = Movie.new
+		@temp_title = "SomeSillyStupidSnazzyMovie"
+		@temp_director = "PhilPhilson"
+		@temp_movie.title = @temp_title
+		@temp_movie.rating = "PG"
+		@temp_movie.director = @temp_director
+		@temp_movie.release_date = '1977-05-24'
+		@temp_movie.save
+		@temp_movie_results = Movie.find_by_director(@temp_director) 
+	end
+	after(:each) do
+		@temp_movie.destroy
 	end
 	it 'should call the model method that performs similar movies search' do
-		Movie.should_receive(:find_similar_movies).with('George Lucas').and_return(@fake_results)
-		post :similar_movies, {:director => 'George Lucas'}
+		Movie.should_receive(:find_similar_movies).with(@temp_movie.id).and_return(@temp_movie_results)
+		get :similar_movies, {:id => @temp_movie.id}
 	end
 	describe 'after link click' do
 		before :each do
-			Movie.stub(:find_similar_movies).and_return(@similar_movie_results)
-			post :similar_movies, {:director => 'George Lucas'}
+			Movie.stub(:find_similar_movies).and_return(@temp_movie_results)
+			post :similar_movies, {:id => @temp_movie.id}
 		end
 		it 'should select the similar movies template for rendering' do
 			response.should render_template('similar_movies')		
 		end
 		it 'should make the similar movies avalible to that template' do
-			assigns(:movies).should == @similar_movie_results		
+			assigns(:movies).should == @temp_movie_results		
 		end  
 	end
   end
